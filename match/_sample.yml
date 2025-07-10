@@ -1,0 +1,82 @@
+
+global_vars:
+  - name: PACKAGE_PATH_FOR_WINDOWS
+    type: echo
+    params:
+      echo: 'C:/Users/<USER_NAME>/AppData/Roaming/espanso/match/packages/delays-characters'
+  - name: PACKAGE_PATH_FOR_MAC
+    type: echo
+    params:
+      echo: '%CONFIG%/match/packages/delays-characters'
+  - name: PAKCAGE_REPOSITORY_PATH
+    type: echo
+    params:
+      echo: 'C:/Users/<USER_NAME>/repo/espanso-template'
+
+matches:
+  - trigger: :delay-sample 
+    replace: "{{Output}}"
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: :delay
+      - name: Input
+        type: echo
+        params:
+          echo: |
+            type Hello, World!
+            tap enter
+            type Pausing for one second
+            tap enter
+            sleep 1 
+            type How are you?
+            tap space
+            press shift
+            type I am a bot
+            release shift
+            tap enter
+            type The trigger was "{{Trig}}"
+            tap enter
+            tap tab
+            type The End.
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py' # 패키지 경로 설정!
+            - '{{Trig}}'
+            - '{{Input}}'
+
+  - trigger: ";login-sample"
+    replace: "{{Output}}"
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: ";login-sample"
+      - name: INPUT
+        type: choice
+        params:
+          values:
+            - label: "admin"
+              id: |
+                type admin id
+                tap tab
+                type admin password
+                tap enter
+            - label: "user"
+              id: |
+                type user id
+                tap tab
+                type user password
+                tap enter
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'

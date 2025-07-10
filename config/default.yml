@@ -1,0 +1,41 @@
+# espanso 설정 파일
+
+# 전체적인 소개는 공식 문서를 참고하세요: https://espanso.org/docs/
+
+# 이 파일은 espanso의 전역 설정을 정의하는 데 사용할 수 있습니다.
+# 여기에 설정된 옵션들은 모든 애플리케이션에서 기본으로 사용됩니다.
+# 하지만 앱별로 따로 설정을 덮어쓸 수도 있습니다.
+
+# 설정을 쉽게 하기 위해 자주 사용하는 옵션 몇 개를 이 파일에 포함해두었습니다.
+# 원하는 항목의 주석(#)을 제거하고 필요에 맞게 수정하세요!
+
+# --- 토글 키(toggle key)
+
+# Espanso를 더블탭으로 켜고 끌 수 있는 키를 설정합니다.
+# 사용 가능한 옵션: CTRL, SHIFT, ALT, CMD, OFF
+# 키의 왼쪽/오른쪽 변형도 사용 가능: LEFT_CTRL, RIGHT_SHIFT 등...
+# toggle_key: ALT
+
+# 토글 키 기능을 완전히 비활성화하려면
+# toggle_key: OFF
+
+# --- 입력 백엔드 (Injection Backend)
+
+# Espanso는 텍스트를 앱에 입력하는 다양한 방식을 지원합니다.
+# 각각의 방식에는 장단점이 있으므로, 문제가 있을 경우 변경해볼 수 있습니다.
+# 기본값은 "Auto"이며 대부분의 경우 잘 작동합니다.
+# 하지만 문제가 있을 경우 "Clipboard" 또는 "Inject" 모드를 시도해볼 수 있습니다.
+# backend: Clipboard
+
+# --- 자동 재시작 (Auto-restart)
+
+# 설정 파일이 변경되었을 때 자동으로 Espanso를 다시 시작할지 여부를 설정합니다.
+# auto_restart: false
+
+# --- 클립보드 기준 길이 (Clipboard threshold)
+
+# 긴 텍스트를 한 글자씩 입력하면 느려지기 때문에,
+# Espanso는 텍스트 길이가 'clipboard_threshold'보다 길 경우 클립보드를 사용합니다.
+# clipboard_threshold: 100
+
+# 모든 옵션 목록은 공식 문서를 참고하세요: https://espanso.org/docs/
