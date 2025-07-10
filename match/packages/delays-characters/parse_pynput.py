@@ -27,9 +27,25 @@ def parse_and_execute_commands(commands):
             keyboard.type(text)
         
         elif line.startswith('tap'):
-            key_name = line[len('tap '):].strip().lower()
-            key = getattr(Key, key_name, key_name)
-            keyboard.tap(key)
+            keys = line[len('tap '):].strip().lower().split('+')
+            keys = [k.strip() for k in keys]
+            if len(keys) == 1:
+                key = getattr(Key, keys[0], keys[0])
+                keyboard.tap(key)
+            else:
+                # 여러 키 조합 (예: ctrl + l)
+                key_objs = []
+                for k in keys:
+                    if hasattr(Key, k):
+                        key_objs.append(getattr(Key, k))
+                    else:
+                        key_objs.append(k)
+                # 조합키 누르기
+                for k in key_objs[:-1]:
+                    keyboard.press(k)
+                keyboard.tap(key_objs[-1])
+                for k in reversed(key_objs[:-1]):
+                    keyboard.release(k)
         
         elif line.startswith('press'):
             key_name = line[len('press '):].strip().lower()

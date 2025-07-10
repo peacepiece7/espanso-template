@@ -80,3 +80,31 @@ matches:
             - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
             - '{{Trig}}'
             - '{{INPUT}}'
+
+  - trigger: ";pp"
+    replace: "{{Output}}"
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: ";pp"
+      - name: INPUT
+        type: choice
+        params:
+          values:
+            - label: "1. localhost:8080"
+              id: |
+                tap ctrl + l
+                type http://localhost:8080
+            - label: "2. localhost:3000"
+              id: |
+                tap ctrl + l
+                type http://localhost:3000
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'
