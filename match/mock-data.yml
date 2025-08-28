@@ -10,13 +10,13 @@ global_vars:
       echo: '%CONFIG%/match/packages/delays-characters'
 
 matches:
-  - trigger: '``r'
+  - trigger: '``q'
     replace: '{{Output}}'
     vars:
       - name: Trig
         type: echo
         params:
-          echo: '``r'
+          echo: '``q'
       - name: INPUT
         type: choice
         params:
