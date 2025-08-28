@@ -4,7 +4,7 @@
 # See https://pynput.readthedocs.io/en/latest/keyboard.html#controlling-the-keyboard
 # Supports type, tap, press, release, and sleep
 
-import argparse, time
+import argparse, time, random, string
 try:
     from pynput.keyboard import Controller, Key
 except ImportError:
@@ -16,6 +16,38 @@ except ImportError:
 
 # Initialize the keyboard controller
 keyboard = Controller()
+
+def generate_random_short_string():
+    """2-3단어 랜덤 문자열 생성"""
+    words = ['blue', 'red', 'green', 'yellow', 'black', 'white', 'sky', 'ocean', 'mountain', 'river', 'tree', 'flower', 'bird', 'fish', 'cat', 'dog']
+    return ' '.join(random.sample(words, random.randint(2, 3)))
+
+def generate_random_long_string():
+    """2-3문장 랜덤 문자열 생성"""
+    sentences = [
+        "The quick brown fox jumps over the lazy dog.",
+        "All work and no play makes Jack a dull boy.",
+        "To be or not to be, that is the question.",
+        "A journey of a thousand miles begins with a single step.",
+        "Practice makes perfect.",
+        "Actions speak louder than words.",
+        "Better late than never.",
+        "Don't judge a book by its cover."
+    ]
+    return ' '.join(random.sample(sentences, random.randint(2, 3)))
+
+def generate_random_phone():
+    """010-NNNN-NNNN 형식 랜덤 전화번호 생성"""
+    middle = ''.join(random.choices(string.digits, k=4))
+    last = ''.join(random.choices(string.digits, k=4))
+    return f"010-{middle}-{last}"
+
+def generate_random_date():
+    """YYYY-MM-DD 형식 랜덤 날짜 생성"""
+    year = random.randint(2020, 2030)
+    month = random.randint(1, 12)
+    day = random.randint(1, 28)  # 28일로 제한하여 유효한 날짜 보장
+    return f"{year:04d}-{month:02d}-{day:02d}"
 
 def parse_and_execute_commands(commands):
     lines = commands.strip().splitlines()
@@ -60,6 +92,22 @@ def parse_and_execute_commands(commands):
         elif line.startswith('sleep'):
             time_to_sleep = float(line[len('sleep '):].strip())
             time.sleep(time_to_sleep)
+        
+        elif line.startswith('random_short'):
+            text = generate_random_short_string()
+            keyboard.type(text)
+        
+        elif line.startswith('random_long'):
+            text = generate_random_long_string()
+            keyboard.type(text)
+        
+        elif line.startswith('random_phone'):
+            text = generate_random_phone()
+            keyboard.type(text)
+        
+        elif line.startswith('random_date'):
+            text = generate_random_date()
+            keyboard.type(text)
 
 def main():
     # Set up argument parsing
