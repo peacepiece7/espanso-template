@@ -19,8 +19,8 @@ keyboard = Controller()
 
 def generate_random_short_string():
     """2-3단어 랜덤 문자열 생성"""
-    words = ['blue', 'red', 'green', 'yellow', 'black', 'white', 'sky', 'ocean', 'mountain', 'river', 'tree', 'flower', 'bird', 'fish', 'cat', 'dog']
-    return ' '.join(random.sample(words, random.randint(2, 3)))
+    words = ['blue', 'red', 'green', 'yellow', 'black', 'white', 'sky', 'ocean', 'mountain', 'river', 'tree', 'flower', 'bird', 'fish', 'cat', 'dog', 'sun', 'moon', 'star', 'cloud', 'wind', 'rain', 'snow', 'fire', 'earth', 'water', 'air']
+    return ' '.join(random.sample(words, random.randint(2, 4)))
 
 def generate_random_long_string():
     """2-3문장 랜덤 문자열 생성"""
@@ -32,9 +32,19 @@ def generate_random_long_string():
         "Practice makes perfect.",
         "Actions speak louder than words.",
         "Better late than never.",
-        "Don't judge a book by its cover."
+        "Don't judge a book by its cover.",
+        "Time waits for no one.",
+        "Knowledge is power.",
+        "Where there's a will, there's a way.",
+        "The early bird catches the worm.",
+        "You can't teach an old dog new tricks.",
+        "A picture is worth a thousand words.",
+        "The pen is mightier than the sword.",
+        "When in Rome, do as the Romans do.",
+        "Every cloud has a silver lining.",
+        "The grass is always greener on the other side."
     ]
-    return ' '.join(random.sample(sentences, random.randint(2, 3)))
+    return ' '.join(random.sample(sentences, random.randint(2, 4)))
 
 def generate_random_phone():
     """010-NNNN-NNNN 형식 랜덤 전화번호 생성"""
