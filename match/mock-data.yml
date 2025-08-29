@@ -10,29 +10,77 @@ global_vars:
       echo: '%CONFIG%/match/packages/delays-characters'
 
 matches:
-  - trigger: '``q'
+  - trigger: '``q1'
     replace: '{{Output}}'
     vars:
       - name: Trig
         type: echo
         params:
-          echo: '``q'
+          echo: '``q1'
       - name: INPUT
-        type: choice
+        type: echo
         params:
-          values:
-            - label: '1. random short string (2~3 단어)'
-              id: |
-                random_short
-            - label: '2. random long string (2~3 문장)'
-              id: |
-                random_long
-            - label: '3. random phone number (010-1111-2222)'
-              id: |
-                random_phone
-            - label: '4. random date (2025-01-01)'
-              id: |
-                random_date
+          echo: 'random_short'
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'
+  
+  - trigger: '``q2'
+    replace: '{{Output}}'
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: '``q2'
+      - name: INPUT
+        type: echo
+        params:
+          echo: 'random_long'
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'
+  
+  - trigger: '``q3'
+    replace: '{{Output}}'
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: '``q3'
+      - name: INPUT
+        type: echo
+        params:
+          echo: 'random_phone'
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'
+  
+  - trigger: '``q4'
+    replace: '{{Output}}'
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: '``q4'
+      - name: INPUT
+        type: echo
+        params:
+          echo: 'random_date'
       - name: Output
         type: script
         params:

@@ -20,7 +20,7 @@ keyboard = Controller()
 def generate_random_short_string():
     """2-3단어 랜덤 문자열 생성"""
     words = ['blue', 'red', 'green', 'yellow', 'black', 'white', 'sky', 'ocean', 'mountain', 'river', 'tree', 'flower', 'bird', 'fish', 'cat', 'dog', 'sun', 'moon', 'star', 'cloud', 'wind', 'rain', 'snow', 'fire', 'earth', 'water', 'air']
-    return ' '.join(random.sample(words, random.randint(2, 4)))
+    return ' '.join(random.sample(words, random.randint(2, 3)))
 
 def generate_random_long_string():
     """2-3문장 랜덤 문자열 생성"""
@@ -44,7 +44,7 @@ def generate_random_long_string():
         "Every cloud has a silver lining.",
         "The grass is always greener on the other side."
     ]
-    return ' '.join(random.sample(sentences, random.randint(2, 4)))
+    return '\n'.join(random.sample(sentences, random.randint(2, 4)))
 
 def generate_random_phone():
     """010-NNNN-NNNN 형식 랜덤 전화번호 생성"""
