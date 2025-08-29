@@ -1,4 +1,4 @@
 match/*.yml
 !match/_*.yml
 !match/base.yml
-!match/mock-data.yml
+!match/mock-data*
