@@ -89,3 +89,23 @@ matches:
             - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
             - '{{Trig}}'
             - '{{INPUT}}'
+  
+  - triggers: ['`q5', '`w5']
+    replace: '{{Output}}'
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: '`q5'
+      - name: INPUT
+        type: echo
+        params:
+          echo: 'random_email'
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'

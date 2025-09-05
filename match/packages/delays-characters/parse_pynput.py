@@ -59,6 +59,35 @@ def generate_random_date():
     day = random.randint(1, 28)  # 28일로 제한하여 유효한 날짜 보장
     return f"{year:04d}-{month:02d}-{day:02d}"
 
+def generate_random_email():
+    """랜덤 이메일 주소 생성"""
+    # 사용자명 부분
+    first_names = ['john', 'jane', 'mike', 'sarah', 'david', 'lisa', 'chris', 'emma', 'alex', 'anna', 'tom', 'kate', 'sam', 'lucy', 'ben', 'zoe', 'dan', 'mia', 'joe', 'eva']
+    last_names = ['smith', 'johnson', 'williams', 'brown', 'jones', 'garcia', 'miller', 'davis', 'rodriguez', 'martinez', 'hernandez', 'lopez', 'gonzalez', 'wilson', 'anderson', 'thomas', 'taylor', 'moore', 'jackson', 'martin']
+    
+    # 도메인 부분
+    domains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'naver.com', 'daum.net', 'company.com', 'example.com', 'test.com', 'demo.org']
+    
+    # 랜덤 조합 생성
+    first_name = random.choice(first_names)
+    last_name = random.choice(last_names)
+    domain = random.choice(domains)
+    
+    # 사용자명 형식 랜덤 선택
+    username_formats = [
+        f"{first_name}.{last_name}",
+        f"{first_name}{last_name}",
+        f"{first_name}_{last_name}",
+        f"{first_name}{random.randint(10, 99)}",
+        f"{first_name}.{last_name}{random.randint(10, 99)}",
+        f"{last_name}.{first_name}",
+        f"{first_name[0]}{last_name}",
+        f"{first_name}{last_name[0]}"
+    ]
+    
+    username = random.choice(username_formats)
+    return f"{username}@{domain}"
+
 def parse_and_execute_commands(commands):
     lines = commands.strip().splitlines()
 
@@ -117,6 +146,10 @@ def parse_and_execute_commands(commands):
         
         elif line.startswith('random_date'):
             text = generate_random_date()
+            keyboard.type(text)
+        
+        elif line.startswith('random_email'):
+            text = generate_random_email()
             keyboard.type(text)
 
 def main():
