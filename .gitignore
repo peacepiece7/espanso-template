@@ -2,3 +2,4 @@ match/*.yml
 !match/_*.yml
 !match/base.yml
 !match/mock-data*
+!match/obsidian*
