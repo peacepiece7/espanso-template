@@ -20,18 +20,15 @@ matches:
         type: echo
         params:
           echo: |
-            press cmd
-            sleep 0.1
-            release cmd
-            sleep 0.2
-            type cmd
-            tap enter
-            sleep 0.5
             type cobs
-            tap enter
-            sleep 0.3
+            press enter
+            sleep 0.1
+            release enter
+            sleep 0.5
             type git checkout main && git fetch --all && git pull origin main
-            tap enter
+            press enter
+            sleep 0.1
+            release enter
       - name: Output
         type: script
         params:
