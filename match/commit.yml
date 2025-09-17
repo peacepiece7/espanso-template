@@ -14,4 +14,4 @@ matches:
             message:
               default: 'chore: crud some files'
             branch:
-              default: '-u HEAD'
+              default: '-u origin HEAD'
