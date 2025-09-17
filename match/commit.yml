@@ -1,5 +1,5 @@
 matches:
-  - trigger: ';gc'
+  - trigger: ';;gc'
     replace: 'git add . && git commit -m "{{form1.message}}" && git push origin {{form1.branch}}'
     vars:
       - name: 'form1'
@@ -15,3 +15,15 @@ matches:
               default: 'chore: crud some files'
             branch:
               default: 'main'
+  - trigger: ';gcd'
+    replace: 'git add . && git commit -m "{{form1.message}}" && git push origin dev'
+    vars:
+      - name: 'form1'
+        type: form
+        params:
+          layout: |
+            커밋 메시지를 입력하세요:
+            [[message]]
+          fields:
+            message:
+              default: 'chore: crud some files'
