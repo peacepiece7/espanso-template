@@ -8,7 +8,6 @@ global_vars:
     type: echo
     params:
       echo: '%CONFIG%/match/packages/delays-characters'
-
 matches:
   - triggers: ['`q1', '`w1']
     replace: '{{Output}}'
@@ -28,8 +27,7 @@ matches:
             - py
             - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
             - '{{Trig}}'
-            - '{{INPUT}}'
-  
+            - '{{INPUT}}'    
   - triggers: ['`q2', '`w2']
     replace: '{{Output}}'
     vars:
@@ -71,24 +69,12 @@ matches:
             - '{{INPUT}}'
   
   - triggers: ['`q4', '`w4']
-    replace: '{{Output}}'
+    replace: "{{mydate}}"
     vars:
-      - name: Trig
-        type: echo
+      - name: mydate
+        type: date
         params:
-          echo: '`q4'
-      - name: INPUT
-        type: echo
-        params:
-          echo: 'random_date'
-      - name: Output
-        type: script
-        params:
-          args:
-            - py
-            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
-            - '{{Trig}}'
-            - '{{INPUT}}'
+          format: "%Y-%m-%d"
   
   - triggers: ['`q5', '`w5']
     replace: '{{Output}}'
