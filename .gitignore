@@ -5,3 +5,4 @@ match/*.yml
 !match/obsidian*
 !match/commit*
 !match/css*
+!match/shortcut*

@@ -16,9 +16,9 @@ matches:
       - name: Trig
         type: echo
         params:
-          echo: ";pp"
+          echo: ";ftr"
       - name: INPUT
-        type: 
+        type: echo
         params:
           echo: |
             type filter: blur(3px);

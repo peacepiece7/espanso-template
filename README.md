@@ -7,7 +7,7 @@ espanso log
 espanso path
 ```
 
-## ESPANSO 설치 및 실행
+## espanso 설치 및 실행
 
 [Install Espanso](https://espanso.org/install/)
 

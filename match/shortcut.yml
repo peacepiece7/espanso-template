@@ -1,0 +1,60 @@
+global_vars:
+  - name: PACKAGE_PATH_FOR_WINDOWS
+    type: echo
+    params:
+      # <USER_NAME> 자리에 사용자 이름 넣어주기, 에러나면 where espanso 또는 PATH 체크!
+      echo: 'C:/Users/a/AppData/Roaming/espanso/match/packages/delays-characters'
+  - name: PACKAGE_PATH_FOR_MAC
+    type: echo
+    params:
+      echo: '%CONFIG%/match/packages/delays-characters'
+
+matches:
+  - trigger: ';py'
+    replace: '{{Output}}'
+    vars:
+      - name: Trig
+        type: echo
+        params:
+          echo: ';py'
+      - name: INPUT
+        type: choice
+        params:
+          values:
+            - label: '1. import py libs'
+              id: |
+                type import pandas as pd
+                tap enter
+                type import numpy as np
+                tap enter
+                type import matplotlib.pyplot as plt
+                tap enter
+                type import seaborn as sns
+                tap enter
+                type import xgboost as xgb
+                tap enter
+                type import lightgbm as lgb
+                tap enter
+                type from joblib import dump, load
+                tap enter
+                type import os
+                tap enter
+                type import sys
+                tap enter
+                type import warnings
+                tap enter
+                type import time
+                tap enter
+                type import itertools
+                tap enter
+                from sklearn.datasets import load_iris
+                tap enter
+      - name: Output
+        type: script
+        params:
+          args:
+            - py
+            - '{{PACKAGE_PATH_FOR_WINDOWS}}/parse_pynput.py'
+            - '{{Trig}}'
+            - '{{INPUT}}'
+
