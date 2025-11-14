@@ -15,3 +15,10 @@ matches:
               default: 'chore: crud some files'
             branch:
               default: '-u origin HEAD'
+  - trigger: ':pr'
+    replace: '{{date}} 정태욱'
+    vars:
+      - name: date
+        type: date
+        params:
+          format: '%Y%m%d'
